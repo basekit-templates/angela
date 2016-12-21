@@ -24,7 +24,7 @@
             "color4":"#242013",
             "color5":"#868788",
             "color6":"#787673",
-            "color7":"#0f1d3c"
+            "color7":"#19273a"
         }
     },
     "fontSwatch": {
@@ -74,8 +74,8 @@
             "font-size": "15px",
             "font-weight": "400",
             "line-height": "25px",
-            "color": "@color-swatch7",
-            "color-hover": "@color-swatch2",
+            "color": "@color-swatch1",
+            "color-hover": "@color-swatch3",
             "letter-spacing": "0px",
             "background-color": "@color-swatch7",
             "background-color-hover": "@color-swatch7"
@@ -131,8 +131,11 @@
             "font__companyname--line-height" : "@font-swatch10-line-height",
             "font__companyname--letter-spacing" : "@font-swatch10-letter-spacing"
         },
+        "header": {
+            "color__header--background": "@color-swatch7"
+        },
         "footer": {
-            "color__footer--background": "@color-swatch4"
+            "color__footer--background": "@color-swatch7"
         },
         "typography": {
             "color__h1--text": "@font-swatch1-color",
@@ -184,7 +187,7 @@
         "navigation": {
             "color__navigation--text": "@font-swatch6-color",
             "color__navigation--text--hover": "@font-swatch6-color-hover",
-            "color__navigation--text--selected": "@font-swatch6-color",
+            "color__navigation--text--selected": "@font-swatch6-color-hover",
             "color__navigation--background": "@color-swatch4",
             "font__navigation--font-family" : "@font-swatch6-font-family",
             "font__navigation--font-size" : "@font-swatch6-font-size",

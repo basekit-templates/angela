@@ -1,9 +1,14 @@
+.header-bg {
+    width: 100%;
+    padding: 20px 50px;
+    background-color: @color__header--background;
+}
+
 // ---------------
 // Flexbox
 // ---------------
 
 .flex-container {
-    padding: 30px 50px 20px;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -174,10 +179,7 @@
 // Selected nav item
 
 .extendednavigation .navigation-item.selected > .item-name {
-    color: @color-swatch4;
-    @media only screen and (max-width : 1024px) {
-        color: lighten(@color__navigation--text--hover, 30%);
-    }
+    color: @color__navigation--text--selected;
 }
 
 // Clears margin on ul
@@ -193,7 +195,7 @@
     right: 0;
     white-space: normal;
     border: 1px solid darken(@color__body--background, 10%);
-    background-color: @color__body--background;
+    background-color: @color__header--background;
     .navigation-item--child {
         @media only screen and (min-width: 1024px) {
             border-bottom: 1px solid darken(@color__body--background, 5%);
@@ -206,10 +208,7 @@
 
 .extendednavigation .item-name {
     padding: 4px 12px;
-    color: @color__p--text;
-    &:hover {
-        color: @color-swatch4;
-    }
+
     @media only screen and (min-width: 600px) and (max-width: 1024px) {
         font-size: 20px;
         line-height: 35px;

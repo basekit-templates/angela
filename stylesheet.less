@@ -122,13 +122,13 @@ body {
     margin: 7em auto 0;
     padding: 1em 0;
     background: @color__footer--background;
-    background: -moz-linear-gradient(top, @color__footer--background 0%, darken(@color__footer--background,15%) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, @color__footer--background), color-stop(100%, darken(@color__footer--background,15%)));
-    background: -webkit-linear-gradient(top, @color__footer--background 0%, darken(@color__footer--background,15%) 100%);
-    background: -o-linear-gradient(top, @color__footer--background 0%, darken(@color__footer--background,15%) 100%);
-    background: -ms-linear-gradient(top, @color__footer--background 0%, darken(@color__footer--background,15%) 100%);
-    background: linear-gradient(to bottom, @color__footer--background 0%, darken(@color__footer--background,15%) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color__footer--background', endColorstr='darken(@color__footer--background,15%)', GradientType=0 );
+    background: -moz-linear-gradient(top, lighten(@color__footer--background,15%) 0%, @color__footer--background 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, lighten(@color__footer--background,15%)), color-stop(100%, @color__footer--background));
+    background: -webkit-linear-gradient(top, lighten(@color__footer--background,15%) 0%, @color__footer--background 100%);
+    background: -o-linear-gradient(top, lighten(@color__footer--background,15%) 0%, @color__footer--background 100%);
+    background: -ms-linear-gradient(top, lighten(@color__footer--background,15%) 0%, @color__footer--background 100%);
+    background: linear-gradient(to bottom, lighten(@color__footer--background,15%) 0%, @color__footer--background 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='lighten(@color__footer--background,15%)', endColorstr='@color__footer--background', GradientType=0 );
 
     @media @tablet {
         margin: 2em auto 0;
@@ -137,116 +137,6 @@ body {
         padding: 0;
     }
 }
-
-
-
-// -----------------------------
-// Profile
-// -----------------------------
-
-.profile {
-    text-align: center;
-    @media only screen and (min-width: 678px) {
-        padding: 0 8em 0;
-    }
-    h1,h2,h3,p, a, .phone-number, .tweet-item p,
-    .twitter .tweet-item .tweet-metadata .timestamp,
-    .twitter .tweet-item .tweet-metadata .via {
-        padding-bottom: 0;
-
-        font-family: @font__p--font-family;
-        color: @color-swatch7;
-        font-size: @font__p--font-size;
-        font-weight: @font__p--font-weight;
-        line-height: @font__p--line-height;
-    }
-    .icon--phone:before {
-        color: @color-swatch7;
-    }
-    // Twitter
-    .twitter {
-        max-width: 450px;
-        margin: 0 auto;
-        padding-top: 10px;
-    }
-    .tweet-item {
-        padding: 0;
-        padding-left: 0;
-        margin: 0 auto;
-        background-color: transparent;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: none;
-        border: none;
-        max-width: 100%;
-    }
-    .twitter .tweet-item .avatar { display: none; }
-
-    // Social Icons
-
-    .social-link {
-        padding: 2px 8px;
-    }
-
-    // Address
-    .address-line {
-        padding-bottom: 0;
-    }
-}
-
-// Phone number for tablet and desktop styled as normal paragraph text
-@media only screen and (min-width: 481px) {
-    .profile a.phone-number-link {
-        color: @color-swatch5;
-        &:hover {
-            text-decoration: none;
-            cursor: default;
-        }
-    }
-}
-
-// Profile Signup Form
-// --------------------------------
-
-.profile .signupform {
-    .form { 
-        max-width: 450px;
-        margin: 20px auto;
-        background-color: transparent;
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: none;
-        @media @mobile {
-            margin: 10px 0;
-        }
-    }
-    .form-body {
-        padding: 0;
-    }
-    input {
-        .border-radius(3px);
-        @media @mobile {
-            text-align: center;
-        }
-    }
-    legend, label, button {
-        color: @color-swatch7;
-        padding: 0;
-    }
-   // Label for tablet and desktop
-    .label {
-        @media only screen and (min-width: 481px) {
-            float: left;
-        }
-    }
-    .button {
-        padding: 4px 18px;
-    }
-}
-
 
 
 
@@ -290,6 +180,108 @@ body {
     padding: 4px 8px;
 }
 
+
+
+
+// -----------------------------
+// Profile
+// -----------------------------
+
+.profile {
+    text-align: center;
+    @media only screen and (min-width: 678px) {
+        padding: 0 8em 0;
+    }
+    h1,h2,h3,p, a, .phone-number, .tweet-item p,
+    .twitter .tweet-item .tweet-metadata .timestamp,
+    .twitter .tweet-item .tweet-metadata .via,
+    .social-link {
+        padding-bottom: 0;
+
+        font-family: @font__p--font-family;
+        color: @color-swatch1;
+        font-size: @font__p--font-size;
+        font-weight: @font__p--font-weight;
+        line-height: @font__p--line-height;
+    }
+    .icon--phone:before {
+        color: @color-swatch1;
+    }
+    .social-link {
+        border: none;
+    }
+    // Twitter
+    .twitter {
+        max-width: 450px;
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+    .tweet-item {
+        padding: 0;
+        padding-left: 0;
+        margin: 0 auto;
+        background-color: transparent;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+    }
+    .twitter .tweet-item .avatar { display: none; }
+
+    // Social Icons
+
+    .social-link {
+        padding: 2px 8px;
+    }
+
+    // Address
+    .address-line {
+        padding-bottom: 0;
+    }
+}
+
+// Profile Signup Form
+// --------------------------------
+
+.profile .signupform {
+    background-color: transparent;
+    border: none;
+    .form { 
+        max-width: 450px;
+        margin: 0 auto;
+        background-color: transparent;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+
+    }
+    .form-body {
+        padding: 0;
+    }
+    input {
+        .border-radius(3px);
+        @media @mobile {
+            text-align: center;
+        }
+    }
+    legend, label, button {
+        color: @color-swatch1;
+        padding: 0;
+    }
+   // Label for tablet and desktop
+    .label {
+        @media only screen and (min-width: 481px) {
+            float: left;
+        }
+    }
+    .button {
+        padding: 4px 18px;
+    }
+}
 
 
 
