@@ -1,0 +1,109 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<div class="template-homepage">
+
+    <!-- Nav -->
+    
+            {{widget('extendednavigation', 'navigation', {"align":"centre"})|raw}}
+     
+    <div class="default-header-bottom-line"></div>
+
+    <div class="hero">
+        <!-- Feature Widget -->
+        <div class="feature-container">
+            {{widget('feature', 'featurehome', {
+                "header": "profile",
+                "defaultBgImg": asset('images/feature-bg.jpg'),
+                'positionTopPercentage': '50',
+                'showBtn': true,
+                buttonText: "Lorem Ipsum"
+            })|raw}}
+        </div>
+
+        <!-- Brand -->
+        <div class="brand">
+            <div class="flex-item flex-logo">
+                {{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png') })|raw}}
+            </div>
+            <div class="flex-item flex-companyname">
+                {{widget('companyname', 'companyname', {"business": "profile"})|raw}}
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Main Widget Zone -->
+        {{zone('main')|raw}}
+
+    </div>
+    <!-- End Container -->
+
+     {% include "includes/footer.twig" %}
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    <!-- Feature -->
+    <script>
+
+        if ($(".feature-container").length) {
+            var featureHeight = $(".feature-container").height();
+            var featurePosition = $(".feature-container").position();
+            var featureTriggerValue = featureHeight + featurePosition.top;
+            var window_height = window.innerHeight;
+            var offsetAmount;
+            var textBoxHeight = $(".content-inner-wrap").height();
+
+            function checkFeatureDimensions() {
+                featureHeight = $(".feature-container").height();
+                featurePosition = $(".feature-container").position();
+                featureTriggerValue = featureHeight + featurePosition.top;
+                window_height = window.innerHeight;
+            }
+
+            // Feature parralax fade effect
+            var scrollEffect = function (elem) {
+
+                // How high the window is
+
+                if ( window.pageYOffset > (featureTriggerValue - window_height)  ) {
+
+                    if(featureTriggerValue > window_height) {
+                        offsetAmount = window.pageYOffset - (featureTriggerValue - window_height);
+                    }
+                    else {
+                        offsetAmount = window.pageYOffset;
+                    }
+
+                    // Apply styles as user scrolls
+                    elemInner.setAttribute(
+                        "style", "opacity:" + Math.max(0, parseFloat(1-(2/window_height*(offsetAmount))).toFixed(2)) + ";"
+                    );
+                }
+            };
+
+            var elem = document.querySelector('.content-wrap');
+            var elemInner = document.querySelector('.feature');
+
+
+            window.onscroll = function(e) {
+                scrollEffect(elem);
+            };
+
+            $( window ).resize(function() {
+              checkFeatureDimensions();
+            });
+        }
+
+    </script>
+
+{% endblock %}

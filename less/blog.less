@@ -1,0 +1,364 @@
+// --------------------------------
+// Blog Posts List
+// --------------------------------
+
+.blogpostlist {
+    margin: 0 -20px 0 -10px;
+    @media @tablet {
+        margin: 0;
+    }
+    .clearfix;
+    .post-items {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .post-article {
+        -webkit-flex: 0 1 47%;
+        -ms-flex: 0 1 47%;
+        flex: 0 1 47%;
+        position: relative;
+        
+        @media @tablet {
+            -webkit-flex: 1 1 100%;
+            -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+            width: 100%;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    // Blog images
+    .image-link {
+        overflow: hidden;
+        max-height: 300px;
+        @media @tablet {
+            max-height: 250px;
+        }
+        @media @mobile {
+            max-height: 200px;
+        }
+        .image {
+            width: 100%;
+            margin: 0 auto;
+            height: auto;
+            max-height: none;
+        }
+    }
+
+    .post-content {
+        position: relative;
+        width: 90%;
+        margin: 0 5%;
+        padding: 30px;
+        @media @tablet {
+            width: 100%;
+            margin: 0 auto;
+        }
+        @media @mobile {
+            padding: 20px;
+        }
+        // Box Shadow
+        background-color: @color__blogpostlist-article--background;
+        -webkit-box-shadow: 0px 0 20px 0 rgba(0,0,0,0.2);
+        -moz-box-shadow: 0px 0 20px 0 rgba(0,0,0,0.2);
+        box-shadow: 0px 0 20px 0 rgba(0,0,0,0.2);
+    }
+
+    .post-image + .post-content {
+        top: -30px;
+        @media @tablet {
+            top: 0;
+        }
+    }
+
+    // Text in Blogpostlist
+
+    .post-title {
+        font-size: bkscale(@font__h2--font-size,0.8);
+        line-height: bkscale(@font__h2--line-height,0.8);
+        @media @mobile {
+            font-size: bkscale(@font__h2--font-size,0.7);
+            line-height: bkscale(@font__h2--line-height,0.7);
+        }
+    }
+    .post-title .title-link {
+        color: @color__blogpostlist-title--text;
+        &:hover {
+            color: @color__primary;
+            text-decoration: none;
+        }
+    }
+    .post-excerpt p {
+        font-size: bkscale(@font__p--font-size,0.9);
+        line-height: bkscale(@font__p--line-height,0.9);
+            @media @mobile {
+                font-size: bkscale(@font__p--font-size,0.8);
+                line-height: bkscale(@font__p--line-height,0.8);
+            }
+    }
+
+    // Read More Button - Style comes from buttons.less
+
+    .read-more {
+        margin-top: 20px;
+        display: inline-block;
+        &:hover {
+            text-decoration: none;
+        }
+        @media @tablet {
+            padding: 0 20px;
+        }
+    }
+    // Post Excerpt Full
+    .post-excerpt--full {
+        padding: 0 30px 30px;
+        @media @tablet {
+            padding: 0 20px 30px;
+        }
+        p {
+            padding: 0;
+        }
+        table {
+            table-layout: fixed;
+            th, td {
+                padding: 5px;
+            }
+        }
+    }
+
+    .post-footer {
+        position: relative;
+        bottom: 92px;
+        width: 90%;
+        margin: 0 5%;
+        padding: 0 30px;
+        text-align: right;
+
+        @media @tablet {
+            bottom: 52px;
+        }
+    }
+
+    .post-footer .timestamp {
+        margin: 0;
+        padding: 0;
+        color: @color__button--background;
+        font-size: bkscale(@font__p--font-size,0.8);
+        line-height: bkscale(@font__p--line-height,0.8);
+    }
+    .pagination-item {
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+    .pagination-list {
+        @media only screen and (min-width : 770px) {
+            margin: 0 10px;
+        }
+    }
+} // End Blogpostlist
+
+
+
+// -----------------------------------
+// Single Blog Post: Full Width Widget
+// -----------------------------------
+
+.blogpost-page .container {
+    padding-top: 0;
+}
+
+.container {
+    div#page-zones__template-widgets__blogpost-singleblogpost,
+    div#page-zones__main-widgets__blogpost,
+    div#page-zones__main-widgets__blogpostWidget {
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+}
+
+.blogpost {
+    .post-image {
+        background-position: inherit;
+        .image-link {
+            height: 500px;
+            background-position: inherit;
+            background-size: cover;
+            background-position: center;
+            @media only screen and (max-width: 1400px) {
+                height: 450px;
+            }
+            @media only screen and (max-width: 1140px) {
+                height: 400px;
+            }
+            @media only screen and (max-width: 900px) {
+                height: 350px;
+            }
+            @media @mobile {
+                height: 200px;
+                width: 90%;
+                margin: 20px 5% 0;
+            }
+        }
+        .image {
+            display: none;
+        }
+    }
+
+    .post-title {
+        color: @color__blogpost-title--text;
+    }
+
+    .post-content,
+    .post-footer {
+        display: inline-block;
+        width: 40%;
+        max-width: none;
+        margin: 0 30%;
+        background-color: @color__blogpost-article--background;
+        z-index: 2;
+        @media only screen and (max-width: 1900px) {
+            width: 50%;
+            margin: 0 25%;
+        }
+        @media only screen and (max-width: 1500px) {
+            width: 60%;
+            margin: 0 20%;
+        }
+        @media only screen and (max-width: 1140px) {
+            width: 80%;
+            margin: 0 10%;
+        }
+        @media only screen and (max-width: 900px) {
+            width: 86%;
+            margin: 0 7%;
+        }
+        @media @tablet {
+            width: 90%;
+            margin: 0 5%;
+        }
+    }
+
+    .post-content {
+        margin-top: 40px;
+        @media @tablet {
+            margin-top: 30px;
+        }
+        @media @mobile {
+            margin-top: 20px;
+        }
+    }
+
+    .post-article--has-image .post-content {
+        margin-top: -250px;
+        @media only screen and (max-width: 1400px) {
+            margin-top: -250px;
+        }
+        @media only screen and (max-width: 1140px) {
+            margin-top: -200px;
+        }
+        @media only screen and (max-width: 900px) {
+            margin-top: -150px;
+        }
+        @media @mobile {
+            margin-top: 0;
+        }
+    }
+
+    .post-content {
+        padding: 50px 70px 20px;
+        @media only screen and (max-width: 900px) {
+            padding: 40px 60px 20px;
+        }
+        @media @tablet {
+            padding: 30px 50px 20px;
+        }
+        @media @mobile {
+            padding: 10px 15px 5px;
+        }
+        border: 1px solid darken(@color__body--background, 7%);
+        border-bottom: 0;
+    }
+
+    .post-footer {
+        padding: 10px 70px 50px;
+        @media only screen and (max-width: 900px) {
+            padding: 20px 60px 40px;
+        }
+        @media @tablet {
+            padding: 20px 50px 30px;
+        }
+        @media @mobile {
+            padding: 5px 15px 20px;
+        }
+        border: 1px solid darken(@color__body--background, 7%);
+        border-top: 0;
+    }
+    .timestamp,
+    .category-title,
+    .category-link,
+    .tags-title,
+    .tag-link,
+    .button {
+        font-size: 14px;
+    }
+    .timestamp,
+    .category-title,
+    .tags-title {
+        color: lighten(@color__p--text,10%);
+    }
+    .post-attributes {
+        margin: 20px 0;
+    }
+    .button {
+        &:hover {
+            background-color: transparent;
+            text-decoration: none;
+        }    
+    }
+}
+
+.responsivecolumns {
+    .blogpostlist {
+        .post-image,
+        .post-content,
+        .post-footer {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .post-footer .timestamp {
+            margin: 0 0 10px;
+        }
+    }
+    .blogpost {
+        .post-article {
+            background-color: @color__blogpost-article--background;
+            padding: 25px;
+        }
+        .post-content,
+        .post-footer {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .post-image .image-link {
+            max-height: 300px;
+            height: auto;
+            min-height: 100px;
+            background-size: contain;
+            background-color: @color__blogpost-article--background;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+

@@ -1,0 +1,506 @@
+// ---------------
+// Flexbox
+// ---------------
+
+.flex-container {
+    padding: 30px 50px 20px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: space-between;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid darken(@color__body--background, 8%);
+    margin-bottom: 30px;
+    @media only screen and (max-width : 1024px) {
+        padding: 20px 5% 10px;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    }
+}
+.template-homepage .flex-container {
+    margin-bottom: 0;
+}
+// Global style for flex items
+.flex-item {
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    @media only screen and (max-width : 1024px) {
+        margin-bottom: 0;
+        &.flex-nav {
+            -webkit-align-self: flex-start;
+            -ms-flex-item-align: start;
+            align-self: flex-start;
+        }
+    }
+    // Reorder items for desktop
+    @media only screen and (min-width : 1024px) {
+        &.flex-nav {
+            -webkit-box-ordinal-group: 4;
+            -moz-box-ordinal-group: 4;
+            -webkit-order: 3;
+            -ms-flex-order: 3;
+            order: 3;
+        }
+        &.flex-logo {
+            -webkit-box-ordinal-group: 2;
+            -moz-box-ordinal-group: 2;
+            -webkit-order: 1;
+            -ms-flex-order: 1;
+            order: 1;
+        }
+        &.flex-companyname {
+            -webkit-box-ordinal-group: 3;
+            -moz-box-ordinal-group: 3;
+            -webkit-order: 2;
+            -ms-flex-order: 2;
+            order: 2;
+        }
+    }
+}
+// logo and companyname
+
+.flex-logo {
+    margin-right: 5px;
+}
+
+.flex-logo .logo-image {
+    margin-right: 5px;
+}
+.flex-companyname .companyname {
+    @media only screen and (max-width : 1024px) {
+        max-width: 100%;
+        margin-right: 50px;
+    }
+    @media only screen and (max-width : 600px) {
+        margin-right: 0;
+    }
+}
+.flex-logo,
+.flex-companyname {
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    min-height: 44px;
+    @media only screen and (max-width : 600px) {
+        min-height: inherit;
+    }
+}
+
+// Navigation widget
+.flex-nav {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.company-link {
+    color: @color__companyname--text;
+    font-family: @font__companyname--font-family;
+    font-size: @font__companyname--font-size;
+    font-weight: @font__companyname--font-weight;
+    line-height: @font__companyname--line-height;
+    letter-spacing: @font__companyname--letter-spacing;
+    @media only screen and (max-width : 600px) {
+        font-size: bkscale(@font__companyname--font-size,0.8);
+        line-height: bkscale(@font__companyname--line-height,0.8);
+    }
+}
+
+
+// --------------
+// Brand
+// --------------
+
+.company-link:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+
+
+
+// ----------
+// Navigation
+// ----------
+
+// Folder, adds arrow icon
+.item-name--parent:after {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    margin-left: 4px;
+    border: 5px solid transparent;
+    border-top-color: @color__navigation--text;
+    @media only screen and (max-width : 1024px) {
+        border-top-color: @color__navigation--text;
+    }
+}
+.item-name--parent:hover:after {
+    border-top-color: @color-swatch4;
+    @media only screen and (max-width : 1024px) {
+        border-top-color: lighten(@color__navigation--text--hover, 30%);
+    }
+}
+
+// Selected nav item
+
+.extendednavigation .navigation-item.selected > .item-name {
+    color: @color-swatch4;
+    @media only screen and (max-width : 1024px) {
+        color: lighten(@color__navigation--text--hover, 30%);
+    }
+}
+
+// Clears margin on ul
+.navigation-list {
+    margin: 0;
+    width: auto;
+}
+
+// Sets background colour to navigation and dropdowns
+
+.extendednavigation .navigation-list--children {
+    left: inherit;
+    right: 0;
+    white-space: normal;
+    border: 1px solid darken(@color__body--background, 10%);
+    background-color: @color__body--background;
+    .navigation-item--child {
+        @media only screen and (min-width: 1024px) {
+            border-bottom: 1px solid darken(@color__body--background, 5%);
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.extendednavigation .item-name {
+    padding: 4px 12px;
+    color: @color__p--text;
+    &:hover {
+        color: @color-swatch4;
+    }
+    @media only screen and (min-width: 600px) and (max-width: 1024px) {
+        font-size: 20px;
+        line-height: 35px;
+    }
+    @media only screen and (max-width : 1024px) {
+        color: @color__navigation--text;
+        &:hover {
+            color: lighten(@color__navigation--text--hover, 30%);
+        }
+    }
+    @media only screen and (max-width : 600px) {
+        padding: 8px 0;
+    }
+}
+
+
+
+
+// -----------------------------
+// Nav in Tablet & Mobile
+// -----------------------------
+
+.navigation-list {
+    @media only screen and (max-width : 1024px) {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        .transform(@y:-100%, @x:0);
+
+
+        z-index: 3;
+
+        padding: 150px 100px;
+        background-color: @color-swatch4;
+
+        // Allows scrolling on mobile
+        &.open {
+            overflow: auto;
+        }
+    }
+    @media only screen and (max-width : 600px) {
+        padding: 65px 0 0 0;
+    }
+}
+
+.navigation-list {
+    @media only screen and (min-width: 1024px) {
+        transition-duration: 0.4s;
+    }
+}
+
+
+// Hides navigation until toggled
+.navigation-list {
+    &.open {
+        display: block;
+    }
+}
+
+.navigation-list.open .navigation-item:hover .navigation-list--children {
+    height: auto;
+    padding: 0;
+    position: relative;
+    opacity: 1;
+    background-color: transparent;
+    .transform(@x:0, @y:0);
+    visibility: visible;
+}
+
+// Navigation item
+.navigation-item {
+    @media only screen and (max-width : 1024px) {
+        opacity: 0;
+        .transform(@x:0, @y:5px);
+        .transition(@duration:1s, @ease:ease-in-out);
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+
+        z-index: 0;
+
+        .navigation-item:hover & {
+            display: block;
+        }
+    }
+}
+
+.navigation-item,
+.navigation-item.folder {
+    @media only screen and (max-width : 1024px) {
+        width: 90%;
+        margin: 0 5%;
+    }
+}
+
+// Navigation item when nav is open
+.open .navigation-list {
+    .transform(@x:0, @y:0);
+
+    .navigation-item {
+        .transform(@x:0, @y:0);
+        display: block;
+        opacity: 1;
+    }
+}
+
+// Hide toggle on desktop
+.navigation-toggle {
+    display: none;
+    @media only screen and (max-width : 1024px) {
+        .animation;
+        // Displays as icon's middle bar
+        display: inline-block;
+        height: 44px;
+        width: 44px;
+        text-indent: 1000px;
+        overflow: hidden;
+        background-color: transparent;
+        z-index: 99999;
+
+        .transition(@duration:0.2s, @ease:ease-in-out);
+
+        // Top and bottom navigation item bar
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 3px;
+            top: 0;
+            left: inherit;
+            right: 0;
+            margin-top: 8px;
+            margin-right: 0;
+            background: @color-swatch4;
+            box-shadow: 0 7px 0 @color-swatch4;
+            .transition(@duration:0.2s, @ease:ease-in-out);
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 3px;
+            top: 14px;
+            left: inherit;
+            right: 0;
+            margin-top: 8px;
+            margin-right: 0;
+            background: @color-swatch4;
+            .transition(@duration:0.2s, @ease:ease-in-out);
+        }
+        &:hover {
+            background-color: transparent;
+            &:before {
+                background: lighten(@color-swatch4, 40%);
+                box-shadow: 0 7px 0 lighten(@color-swatch4, 40%);
+            }
+            &:after {
+                background: lighten(@color-swatch4, 40%);
+            }
+        }
+
+        // Toggle Button open state
+        // ------------------------------
+
+        .open & {
+            background-color: transparent;
+            z-index: 100000;
+            position: relative;
+
+            &:before {
+                width: 26px;
+                margin-top: 18px;
+                margin-left: -4px;
+                background: @color__body--background;
+                box-shadow: none;
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+                .transition(@duration:0.2s, @ease:ease-in-out);
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                width: 26px;
+                height: 3px;
+                top: 0;
+                left: 50%;
+                right: 0;
+                margin-top: 18px;
+                margin-left: -4px;
+                background: @color__body--background;
+                box-shadow: none;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                .transition(@duration:0.2s, @ease:ease-in-out);
+            }
+        }
+    }
+}
+
+
+@keyframes bar1 {
+    0% { top: 13px;}
+    50% { top: 23px;  -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg); -ms-transform: rotate(0deg); transform: rotate(0deg);  }
+    100% {top: 23px; background: @color-swatch1; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -o-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg);   }
+}
+
+@-webkit-keyframes bar1 {
+    0% { top: 13px;}
+    50% { top: 23px; -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg); -ms-transform: rotate(0deg); transform: rotate(0deg);   }
+    100% {  }
+}
+
+@keyframes bar2 {
+    0% { bottom: 13px;}
+    50% { bottom: 21px;  -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg); -ms-transform: rotate(0deg); transform: rotate(0deg);  }
+    100% {}
+}
+
+@-webkit-keyframes bar2 {
+    0% { bottom: 13px;}
+    50% { bottom: 21px;  -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg); -ms-transform: rotate(0deg); transform: rotate(0deg);   }
+    100% {}
+}
+
+.extendednavigation {
+    &.align-left,
+    &.align-right,
+    &.align-center {
+        .navigation-toggle {
+            float: right;
+        }
+    }
+}
+
+// Fix Widget Overlay in editor on tablet and mobile
+
+.widget__extendednavigation {
+    + .widget-overlay {
+        @media only screen and (max-width : 1024px) {
+            display: none;
+        }
+    }
+
+    &.open + .widget-overlay {
+        @media only screen and (max-width : 1024px) {
+            position: fixed!important;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 10400!important;
+            display: block;
+            max-width: 90%;
+            margin: 13% auto;
+
+            @media @mobile {
+                width: 90%;
+            }
+
+            &:hover {
+                background: rgba(0, 147, 135, 0.2);
+                border: 1px solid rgb(0, 148, 136);
+                box-shadow: rgba(0, 147, 135, 0.2) 0px 0px 0px 3px inset;
+            }
+        }
+    }
+}
+
+// -----------------------------
+// Homepage Hero
+// -----------------------------
+
+.hero {
+    position: relative;
+}
+
+.brand {
+    position: absolute;
+    top: 110px;
+    z-index: 1;
+    width: 90%;
+    margin: 0 5%;
+    text-align: center;
+}
+

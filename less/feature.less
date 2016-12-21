@@ -1,0 +1,125 @@
+// -------------
+// Feature
+// -------------
+
+.feature {
+    margin-bottom: 90px;
+    @media @mobile {
+        margin-bottom: 0;
+        opacity: 1 !important;
+    }
+    .background-image {
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        display: table;
+        height: 500px;
+        width: 100%;
+        @media only screen and (max-width: 1200px) {
+            height: 450px;
+        }
+        @media only screen and (max-width: 900px) {
+            height: 350px;
+            background-attachment: scroll!important;
+        }
+        @media @mobile {
+            height: 300px;
+        }
+        // Overlay
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: @color__feature-content--background;
+            opacity: 0.5;
+        }
+        // Pattern
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image:image('/images/lineas-diagonales.png');
+        }
+    }
+    .content-wrap {
+        display: table-cell;
+        vertical-align: bottom;
+        padding: 0;
+        position: relative;
+        z-index: 2;
+    }
+    .content-inner-wrap {
+        width: 90%;
+        margin: 0 5%;
+        margin-bottom: -100px;
+        padding: 40px 0;
+        background-color: @color__body--background;
+        border: 1px solid darken(@color__body--background, 5%);
+        -webkit-box-shadow: 0px 0 50px 0 rgba(0,0,0,0.2);
+        -moz-box-shadow: 0px 0 50px 0 rgba(0,0,0,0.2);
+        box-shadow: 0px 0 50px 0 rgba(0,0,0,0.2);
+
+        text-align: center;
+
+        @media only screen and (min-width: 1140px) {
+            width: 960px; // 1140px - 10% for margins
+            margin: 0 auto;
+            margin-bottom: -100px;
+        }
+        @media @mobile {
+            padding: 20px 0;
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 0;
+            
+        }
+    }
+    .headline {
+        padding: 5px 0;
+        font-family: @font__feature-headline--font-family;
+        color: @color__feature-headline--text;
+        font-size: @font__feature-headline--font-size;
+        font-weight: @font__feature-headline--font-weight;
+        line-height: @font__feature-headline--line-height;
+        letter-spacing: @font__feature-headline--letter-spacing;
+    }
+    .strapline {
+        font-family: @font__feature-strapline--font-family;
+        color: @color__feature-strapline--text;
+        font-size: @font__feature-strapline--font-size;
+        font-weight: @font__feature-strapline--font-weight;
+        line-height: @font__feature-strapline--line-height;
+        letter-spacing: @font__feature-strapline--letter-spacing;
+    }
+
+    .headline,
+    .strapline,
+    .button {
+        display: block;
+        width: 70%;
+        margin: 0 auto;
+        @media @tablet {
+            width: 80%;
+        }
+        @media @mobile {
+            width: 90%;
+        }
+    }
+    .button {
+        margin-top: 10px;
+        display: inline-block;
+        width: auto;
+    }
+}

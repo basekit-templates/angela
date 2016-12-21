@@ -1,0 +1,285 @@
+// ----------------------------------------------
+// Slideshow Widget
+// ----------------------------------------------
+
+// Slideshow Height
+.slides-list {
+    min-height: 100px;
+    max-height: 700px;
+    overflow: hidden;
+    margin: 20px 0;
+    @media @tablet {
+        max-height: 350px;
+    }
+    @media @mobile {
+        max-height: 250px;
+    }
+}
+.slides-list,
+.responsiveslideshow .figure {
+    position: relative;
+    min-height: 500px;
+    background-color: transparent;
+    @media @tablet {
+        min-height: 350px;
+    }
+    @media @mobile {
+        min-height: 250px;
+    }
+}
+
+// Slideshow Images
+// ----------------
+
+// Use Background-image Method
+.responsiveslideshow .figure {
+    background-size: cover;
+    background-position: center;
+}
+// Hide Img Element
+.responsiveslideshow .image { display: none; }
+
+
+// Prevents two slides from displaying at the same time
+// ----------------------------------------------------
+// because of slow JS state changes
+.slide-item.current + .slide-item {
+    display: none;
+}
+
+.responsiveslideshow__image {
+    display: none;
+}
+
+// Slide Navigation
+// ----------------
+
+.slide-navigation {
+    display: block;
+    position: absolute;
+    top: inherit;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 40px;
+    margin: 0;
+
+    // Button
+    .button {
+        position: absolute;
+        top: 0;
+        padding: 0;
+        text-align: center;
+        box-shadow: none;
+        width: 40px;
+        height: 40px;
+        min-height: initial;
+        line-height: 30px;
+        font-size: 30px;
+        border: none;
+        &:hover {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    // Control Text
+    .control-text {
+        display: none;
+    }
+}
+
+// Previous Button
+// ---------------
+
+.responsiveslideshow__previous-button:before,
+.responsiveslideshow__next-button:after {
+    @media @mobile {
+        font-size: 26px!important;
+    }
+}
+.responsiveslideshow__previous-button {
+    left: 0;
+
+    // Icon
+    &:before {
+        content: '\f104';
+        display: block;
+        margin: 0;
+        color: @color__button--text;
+    }
+}
+
+// Next Button
+// -----------
+.responsiveslideshow__next-button {
+    right: 0;
+
+    // Icon
+    &:after {
+        content: '\f105';
+        display: block;
+        margin: 0;
+        padding-left: 0.1em;
+        color: @color__button--text;
+    }
+}
+
+// Pause Toggle
+// ------------
+.responsiveslideshow__pause-toggle {
+    top: 0;
+    bottom: 0;
+    left: 70px;
+    margin: auto;
+    @media @mobile {
+        left: 40px;
+    }
+    // Icon
+    &:before {
+        content: '\f04b';
+        display: block;
+        margin: 0;
+        font-size: 14px;
+        color: @color__button--text;
+    }
+    // Play Icon
+    &.pause:before {
+        content: "\f04c";
+        color: @color__button--text;
+    }
+}
+
+// Caption
+// -------
+
+.responsiveslideshow .caption {
+    .flex-display;
+    .flex-direction(column);
+    .justify-content(center);
+
+    height: 100%;
+    margin: 0;
+    padding: 30px;
+    background-color: fade(@color__slideshow-caption--background, 30%);
+    text-align: center;
+
+    @media @tablet {
+        padding: 10px 25px 15px;
+    }
+
+    @media @mobile {
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 5px 25px 5px;
+    }
+
+    .image-title {
+        font-family: @font__h1--font-family;
+        font-size: @font__h1--font-size;
+        line-height: @font__h1--line-height;
+        color: @color__slideshow-title--text;
+        padding-bottom: 5px;
+        @media @tablet {
+            font-size: @font__h2--font-size;
+            line-height: @font__h2--line-height;
+        }
+        @media @mobile {
+            font-size: @font__h4--font-size;
+            line-height: @font__h4--line-height;
+        }
+    }
+
+    .image-description {
+        font-family: @font__p--font-family;
+        font-size: @font__p--font-size;
+        line-height: @font__p--line-height;
+        color: @color__slideshow-description--text;
+    }
+
+    .image-title,
+    .image-description {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+// Slideshow Pagination
+// --------------------
+
+// Pagination Item
+
+.slide-pagination {
+    position: relative;
+    max-width: 40%;
+    margin: 0 auto;
+}
+
+.slide-pagination .pagination-list {
+    display: inline-block;
+    width: 100%;
+    margin-top: 7px;
+    text-align: center;
+    .pagination-item {
+        margin: 0 2px;
+        display: inline-block;
+    }
+    .button {
+        width: 8px;
+        height: 8px;
+        min-height: inherit;
+        padding: 0;
+        text-indent: -9999px;
+        overflow: hidden;
+        box-shadow: none;
+        -webkit-border-radius: 50px;
+           -moz-border-radius: 50px;
+                border-radius: 50px;
+        border: none;
+        background: none;
+        background-color: lighten(@color__button--background, 15%);
+
+    }
+    .pagination-item.selected .button {
+        border: none;
+        background: none;
+        background-color: @color__button--background--hover;
+    }
+}
+
+// Responsivecolumns
+// -----------------
+
+.responsivecolumns {
+    .slides-list {
+        max-height: 250px;
+    }
+    .slides-list,
+    .responsiveslideshow .figure {
+        min-height: 250px;
+    }
+    .slide-navigation {
+        position: relative;
+        margin-top: 10px;
+    }
+    .responsiveslideshow__pause-toggle {
+        left: 50%;
+        margin-left: -20px;
+        margin-top: 5px;
+    }
+    .responsiveslideshow__previous-button:before,
+    .responsiveslideshow__next-button:after {
+            font-size: 26px!important;
+    }
+    .responsiveslideshow .caption {
+        padding: 5px 25px 5px;
+    }
+    .responsiveslideshow .caption .image-title,
+    .responsiveslideshow .caption .image-description {
+        font-family: @font__p--font-family;
+        font-size: bkscale(@font__p--font-size,0.9);
+        line-height: bkscale(@font__p--line-height,0.9);
+    }
+}

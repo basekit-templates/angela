@@ -1,0 +1,711 @@
+// -----------------------------
+// LESS Includes
+// -----------------------------
+
+
+@import "@{templateCommon}/bk-less-framework-v8.less";          // BK LESS Framework
+
+@import "@{templateLocal}/less/variables-mixins.less";          // Variables
+
+@import "@{templateLocal}/less/header-style.less";
+@import "@{templateLocal}/less/feature.less";
+@import "@{templateLocal}/less/ecom.less";
+@import "@{templateLocal}/less/blog.less";
+@import "@{templateLocal}/less/forms.less";
+@import "@{templateLocal}/less/buttons.less";
+@import "@{templateLocal}/less/slideshow.less";
+@import "@{templateLocal}/less/gallery.less";
+@import "@{templateLocal}/less/menu.less";
+
+
+// -----------------------------
+// Media Queries
+// -----------------------------
+
+@bp-tablet: ~"only screen and (max-width: 800px)";
+@bp-mobile: ~"only screen and (max-width: 600px)";
+
+
+
+
+// -----------------------------
+// Anchor links
+// -----------------------------
+
+a {
+    color: @color__link--text;
+}
+
+
+
+
+// -----------------------------
+// Global Styles
+// -----------------------------
+
+
+body {
+    background-color: @color__body--background;
+    background-image:image('/images/texture.png');
+}
+
+
+// -----------------------------
+// Homepage container
+// -----------------------------
+
+.template-homepage .container {
+    padding-top: 40px;
+    @media @mobile {
+        padding-top: 20px;
+    }
+}
+
+
+
+
+// -----------------------------
+// Widgets
+// -----------------------------
+
+.container .widget {
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    @media only screen and (min-width: 1140px) {
+        width: 960px; // 1140px - 10% for margins
+        margin: 10px auto;
+    }
+}
+
+// Widgets in Responsive Columns
+.container {
+    // Two Columns
+    .columns-two-left,
+    .columns-two-right,
+    // Three Columns
+    .columns-three-left,
+    .columns-three-middle,
+    .columns-three-right,
+    // Four Columns
+    .columns-four-first,
+    .columns-four-second,
+    .columns-four-third,
+    .columns-four-fourth {
+        .widget {
+            width: auto;
+            margin: 10px 0;
+            @media only screen and (min-width: 1140px) {
+                width: auto;
+                margin: 10px auto;
+            }
+        }
+    }
+}
+
+
+// Stops mobile scrolling of the body - only the nav is scrollable
+.noscroll {
+    overflow: hidden;
+}
+
+
+
+
+// -----------------------------
+// FOOTER
+// -----------------------------
+
+.template-footer {
+    margin: 7em auto 0;
+    padding: 1em 0;
+    background: @color__footer--background;
+    background: -moz-linear-gradient(top, @color__footer--background 0%, darken(@color__footer--background,15%) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, @color__footer--background), color-stop(100%, darken(@color__footer--background,15%)));
+    background: -webkit-linear-gradient(top, @color__footer--background 0%, darken(@color__footer--background,15%) 100%);
+    background: -o-linear-gradient(top, @color__footer--background 0%, darken(@color__footer--background,15%) 100%);
+    background: -ms-linear-gradient(top, @color__footer--background 0%, darken(@color__footer--background,15%) 100%);
+    background: linear-gradient(to bottom, @color__footer--background 0%, darken(@color__footer--background,15%) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color__footer--background', endColorstr='darken(@color__footer--background,15%)', GradientType=0 );
+
+    @media @tablet {
+        margin: 2em auto 0;
+    }
+    p {
+        padding: 0;
+    }
+}
+
+
+
+// -----------------------------
+// Profile
+// -----------------------------
+
+.profile {
+    text-align: center;
+    @media only screen and (min-width: 678px) {
+        padding: 0 8em 0;
+    }
+    h1,h2,h3,p, a, .phone-number, .tweet-item p,
+    .twitter .tweet-item .tweet-metadata .timestamp,
+    .twitter .tweet-item .tweet-metadata .via {
+        padding-bottom: 0;
+
+        font-family: @font__p--font-family;
+        color: @color-swatch7;
+        font-size: @font__p--font-size;
+        font-weight: @font__p--font-weight;
+        line-height: @font__p--line-height;
+    }
+    .icon--phone:before {
+        color: @color-swatch7;
+    }
+    // Twitter
+    .twitter {
+        max-width: 450px;
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+    .tweet-item {
+        padding: 0;
+        padding-left: 0;
+        margin: 0 auto;
+        background-color: transparent;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+    }
+    .twitter .tweet-item .avatar { display: none; }
+
+    // Social Icons
+
+    .social-link {
+        padding: 2px 8px;
+    }
+
+    // Address
+    .address-line {
+        padding-bottom: 0;
+    }
+}
+
+// Phone number for tablet and desktop styled as normal paragraph text
+@media only screen and (min-width: 481px) {
+    .profile a.phone-number-link {
+        color: @color-swatch5;
+        &:hover {
+            text-decoration: none;
+            cursor: default;
+        }
+    }
+}
+
+// Profile Signup Form
+// --------------------------------
+
+.profile .signupform {
+    .form { 
+        max-width: 450px;
+        margin: 20px auto;
+        background-color: transparent;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        @media @mobile {
+            margin: 10px 0;
+        }
+    }
+    .form-body {
+        padding: 0;
+    }
+    input {
+        .border-radius(3px);
+        @media @mobile {
+            text-align: center;
+        }
+    }
+    legend, label, button {
+        color: @color-swatch7;
+        padding: 0;
+    }
+   // Label for tablet and desktop
+    .label {
+        @media only screen and (min-width: 481px) {
+            float: left;
+        }
+    }
+    .button {
+        padding: 4px 18px;
+    }
+}
+
+
+
+
+// -----------------------------
+// Social Icons
+// -----------------------------
+
+.social-item {
+    margin-right: 3px;
+    margin-bottom: 5px;
+    text-align: center;
+    background-color: transparent;
+    &:hover {
+        background-color: transparent;
+    }
+    .social-link {
+        display: inline-block;
+        width: 31px;
+        height: 31px;
+        padding: 5px 8px 6px;
+        color: @color__socialicons--icon;
+        border: 2px solid @color__socialicons--border;
+        &:before {
+            margin-right: 0;
+            font-size: 14px;
+        }
+        &:hover {
+            text-decoration: none;
+            .transition(@duration:0.6s, @ease:ease-in-out);
+            transform: rotateY(360deg);
+            -ms-transform: rotateY(360deg);
+            -webkit-transform:rotateY(360deg);
+        }
+    }
+    .social-name {
+        display: none;
+    }
+}
+
+.template-footer .social-item .social-link {
+    padding: 4px 8px;
+}
+
+
+
+
+// -----------------------------
+// 12.  #Twitter Feed
+// -----------------------------
+
+.twitter {
+    padding-top: 35px;
+    .tweet-list {
+        .flex-display;
+        .flex-wrap(wrap);
+        .justify-content(space-between);
+        .align-items(stretch);
+        .align-content(stretch);
+
+        margin: 0 -10px;
+
+        @media @tablet {
+            display: inline-block;
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+    .tweet-item {
+        position: relative;
+        margin: 0 10px 20px;
+        padding: 20px 30px;
+        background-color: @color__twitter-item--background;
+        border: 1px solid darken(@color__twitter-item--background, 9%);
+        .border-radius(3px);
+
+        -webkit-flex: 1 1 30%;
+        -ms-flex: 1 1 30%;
+        flex: 1 1 30%;
+
+        -webkit-box-shadow: 0px 0 20px 0 rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 0 20px 0 rgba(0,0,0,0.1);
+        box-shadow: 0px 0 20px 0 rgba(0,0,0,0.1);
+
+        @media only screen and (min-width: 768px) {
+            padding: 25px 30px 20px 90px;
+        }
+
+        @media @tablet {
+            display: block;
+            margin: 0 0 20px 0;
+        }
+
+        p {
+            color: @color__twitter-tweet--text;
+            padding-bottom: 0;
+            font-size: bkscale(@font__p--font-size,0.9);
+            line-height: bkscale(@font__p--line-height,0.9);
+        }
+        .tweet-wrap {
+            width: 100%;
+            text-align: left;
+
+            .flex-display;
+            .flex-direction(column);
+            .flex-wrap(wrap);
+            .justify-content(center);
+            .align-items(stretch);
+            .align-content(center);
+        }
+        .tweet-wrap a {
+            word-break: break-word;
+            word-wrap: break-word;
+            color: @color__twitter-account-name--text;
+        }
+        .avatar {
+            @media only screen and (min-width: 768px) {
+                position: absolute;
+                top: 25px;
+                left: 25px;
+            }
+        }
+        .avatar {
+            display: inline-block;
+            vertical-align: top;
+            width:48px;
+            @media @tablet {
+                margin-bottom: 12px;
+            }
+        }
+        .account-link {
+            padding-bottom: 5px;
+            color: @color__twitter-account-name--text;
+            font-family: @font__h4--font-family;
+            font-size: @font__h4--font-size;
+            line-height: @font__h4--line-height;
+            font-weight: @font__h4--font-weight;
+            letter-spacing: @font__h4--letter-spacing;
+
+        }
+        .tweet-content {
+            position: relative;
+            width: 100%;
+            padding-bottom: 10px;
+            a {
+                word-wrap: break-word;
+                // Fix for IE
+                -ms-hyphens: auto;
+            }
+
+        }
+        .tweet-metadata {
+            font-size: 90%;
+
+            .timestamp,
+            .via {
+                color: lighten(@color__twitter-tweet--text, 15%);
+            }
+            .timestamp,
+            .via,
+            a,
+            span {
+                font-size: bkscale(@font__p--font-size,0.75);
+                line-height: bkscale(@font__p--line-height,0.7);
+            }
+            .retweeted-by {
+                display: inline-block;
+                width: 100%;
+                color: lighten(@color__twitter-tweet--text, 15%);
+            }
+        }
+    }
+}
+
+.responsivecolumns .twitter {
+    .tweet-list {
+        width: 100%;
+        margin: 0;
+    }
+    .tweet-list,
+    .tweet-item {
+        display: block;
+    }
+    .tweet-item {
+        margin: 0 0 35px 0;
+    }
+}
+
+
+
+
+// --------------------
+// Commas after tags
+// --------------------
+
+.tag-link {
+    white-space: nowrap;
+}
+
+.tag-link:after {
+    content: "\002C";
+}
+.tag-item:last-child .tag-link:after {
+    content: "";
+}
+
+
+
+
+// -----------------------------
+// Yelp
+// -----------------------------
+
+
+.yelpreview ul {
+    list-style: none;
+    margin: 16px 0;
+}
+
+
+
+
+// -----------------------------
+// Image Widget
+// -----------------------------
+
+.imagewidget .caption {
+    .image-title {
+        font-family: @font__h4--font-family;
+        font-size: @font__h4--font-size;
+        line-height: @font__h4--line-height;
+        color: @color__image-title--text;
+        @media only screen and (max-width: 735px) {
+            font-size: bkscale(@font__h4--font-size,0.9);
+            line-height: bkscale(@font__h4--line-height,0.9);
+        }
+    }
+    .image-description {
+        font-size: bkscale(@font__p--font-size,0.9);
+        line-height: bkscale(@font__p--line-height,0.9);
+        color: @color__image-description--text;
+        @media @tablet {
+            font-size: bkscale(@font__p--font-size,0.8);
+            line-height: bkscale(@font__p--line-height,0.8);
+        }
+    }
+}
+
+.imagewidget__image {
+    -webkit-box-shadow: 0px 0 20px 0 rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0 20px 0 rgba(0,0,0,0.1);
+    box-shadow: 0px 0 20px 0 rgba(0,0,0,0.1);   
+}
+
+
+
+
+// -----------------------------
+//  Divider (Keyline)
+// -----------------------------
+
+hr.rule {
+    height: 1px;
+    background-color: lighten(@color-swatch5, 8%);
+}
+
+
+// Horizontal rule in blog posts
+hr {
+    height: 1px;
+    border: 0;
+    margin-bottom: 18px;
+    background-color: lighten(@color-swatch5, 8%);
+}
+
+
+
+
+// -----------------------------
+// Click to Call
+// -----------------------------
+
+.clicktocall,
+.companyphone {
+    .phone-number-link:hover {
+        text-decoration: none;
+        .label {
+            text-decoration: none;
+            color: @color-swatch2;
+        }
+    }
+    @media @mobile {
+        .phone-number-link {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            .label {
+                color: @color__button--text;
+            }
+            &:hover .label {
+                color: @color__button--text;
+            }
+        }
+    }
+}
+
+
+
+
+// -----------------------------
+// Blockquote
+// -----------------------------
+
+.content blockquote,
+.post-body blockquote {
+    position: relative;
+    quotes: "“" "”" "“" "”";
+    width: 100%;
+    padding: 40px 60px;
+    margin: 15px auto 25px;
+    text-align: left;
+    border: 1px solid darken(@color__body--background,5%);
+    background-color: @color-swatch1;
+    .border-radius(3px);
+    color: @color__h4--text;
+    font-family: @font__p--font-family;
+    font-size: @font__p--font-size;
+    font-weight: @font__p--font-weight;
+    line-height: @font__p--line-height;
+    letter-spacing: @font__p--letter-spacing;
+    -webkit-box-shadow: 0px 0 50px 0 rgba(0,0,0,0.05);
+    -moz-box-shadow: 0px 0 50px 0 rgba(0,0,0,0.05);
+    box-shadow: 0px 0 50px 0 rgba(0,0,0,0.05);
+    p {
+        color: @color__h4--text;
+        font-family: @font__p--font-family;
+        font-size: @font__p--font-size;
+        font-weight: @font__p--font-weight;
+        line-height: @font__p--line-height;
+        letter-spacing: @font__p--letter-spacing;
+        padding-bottom: 0;
+    }
+}
+
+.content blockquote:before,
+.post-body blockquote:before {
+    position: absolute;
+    color: @color-swatch4;
+    font-size: 40px;
+    left: 40px;
+}
+
+// Mobile
+@media @mobile {
+    .content blockquote,
+    .post-body blockquote {
+        padding: 30px 30px 30px 50px;
+    }
+    .content blockquote:before,
+    .post-body blockquote:before {
+        left: 25px;
+    }
+}
+
+// Four Columns
+.columns-four-first,
+.columns-four-second,
+.columns-four-third,
+.columns-four-fourth {
+    .content blockquote,
+    .post-body blockquote {
+        padding: 30px 30px 30px 50px;
+    }
+    .content blockquote:before,
+    .post-body blockquote:before {
+        left: 25px;
+    }
+}
+
+
+// -----------------------------
+// Text Size for Tablet & Mobile
+// -----------------------------
+
+@media only screen and (max-width: 901px) {
+    h1 {
+        font-size: bkscale(@font__h1--font-size,0.9);
+        line-height: bkscale(@font__h1--line-height,0.9);
+    }
+    h2 {
+        font-size: bkscale(@font__h2--font-size,0.9);
+        line-height: bkscale(@font__h2--line-height,0.9);
+    }
+    p, li, ol, blockquote, code, pre, time, td, th, .via, .profile a, .content a,
+    .responsiveslideshow .caption .image-description,
+    .category-link, .tag-link, .quantity-field,
+    .menusections-item a, .bk-pt-menu .menusections-item a,
+    .product-body {
+        font-size: bkscale(@font__p--font-size,0.9);
+        line-height: bkscale(@font__p--line-height,0.9);
+    }
+    .feature .headline {
+        font-size: bkscale(@font__feature-headline--font-size,0.85);
+        line-height: bkscale(@font__feature-headline--line-height,0.85);
+    }
+    .feature .strapline {
+        font-size: bkscale(@font__feature-strapline--font-size,0.9);
+        line-height: bkscale(@font__feature-strapline--line-height,0.9);
+    }
+    .feature .button {
+        font-size: bkscale(@font__button--font-size,0.9);
+        line-height: bkscale(@font__button--line-height,0.9);
+    }
+    .navigation-item .item-name {
+        font-size: bkscale(@font__navigation--font-size,0.9);
+        line-height: bkscale(@font__navigation--line-height,0.9);
+    }
+}
+
+@media only screen and (max-width: 737px) {
+    h1 {
+        font-size: bkscale(@font__h1--font-size,0.8);
+        line-height: bkscale(@font__h1--line-height,0.8);
+    }
+    h2 {
+        font-size: bkscale(@font__h2--font-size,0.73);
+        line-height: bkscale(@font__h2--line-height,0.73);
+    }
+    h3 {
+        font-size: bkscale(@font__h3--font-size,0.9);
+        line-height: bkscale(@font__h3--line-height,0.9);
+    }
+    h4, .account-link, .legend,
+    .listing-title {
+        font-size: bkscale(@font__h4--font-size,0.9);
+        line-height: bkscale(@font__h4--line-height,0.9);
+    }
+    p, li, ol, blockquote, code, pre, time, td, th, .via, .profile a, .content a,
+    .responsiveslideshow .caption .image-description,
+    .category-link, .tag-link, .quantity-field,
+    .menusections-item a, .bk-pt-menu .menusections-item a,
+    .product-body {
+        font-size: bkscale(@font__p--font-size,0.8);
+        line-height: bkscale(@font__p--line-height,0.8);
+    }
+    .feature .headline {
+        font-size: bkscale(@font__feature-headline--font-size,0.7);
+        line-height: bkscale(@font__feature-headline--line-height,0.7);
+    }
+    .feature .strapline {
+        font-size: bkscale(@font__feature-strapline--font-size,0.8);
+        line-height: bkscale(@font__feature-strapline--line-height,0.8);
+    }
+    .feature .button {
+        font-size: bkscale(@font__button--font-size,0.8);
+        line-height: bkscale(@font__button--line-height,0.8);
+    }
+    .navigation-item .item-name {
+        font-size: bkscale(@font__navigation--font-size,0.75);
+        line-height: bkscale(@font__navigation--line-height,0.75);
+    }
+}
+
