@@ -131,9 +131,6 @@
             "font__companyname--line-height" : "@font-swatch10-line-height",
             "font__companyname--letter-spacing" : "@font-swatch10-letter-spacing"
         },
-        "header": {
-            "color__header--background": "@color-swatch7"
-        },
         "footer": {
             "color__footer--background": "@color-swatch7"
         },
@@ -188,7 +185,7 @@
             "color__navigation--text": "@font-swatch6-color",
             "color__navigation--text--hover": "@font-swatch6-color-hover",
             "color__navigation--text--selected": "@font-swatch6-color-hover",
-            "color__navigation--background": "@color-swatch4",
+            "color__navigation--background": "@color-swatch7",
             "font__navigation--font-family" : "@font-swatch6-font-family",
             "font__navigation--font-size" : "@font-swatch6-font-size",
             "font__navigation--font-weight" : "@font-swatch6-font-weight",

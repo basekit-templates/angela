@@ -7,7 +7,7 @@
     <!-- Nav -->
     
         <div class="header-bg">
-            {{widget('extendednavigation', 'navigation', {"align":"centre"})|raw}}
+            {{widget('extendednavigation', 'navigation', {"align":"center"})|raw}}
         </div>
      
     <div class="default-header-bottom-line"></div>
@@ -27,7 +27,7 @@
         <!-- Brand -->
         <div class="brand">
             <div class="flex-item flex-logo">
-                {{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png') })|raw}}
+                {{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png'), "showTplWidget":"0"})|raw}}
             </div>
             <div class="flex-item flex-companyname">
                 {{widget('companyname', 'companyname', {"business": "profile"})|raw}}

@@ -1,8 +1,8 @@
-.header-bg {
+/*.header-bg {
     width: 100%;
     padding: 20px 50px;
-    background-color: @color__header--background;
-}
+    background-color: @color__navigation--background;
+}*/
 
 // ---------------
 // Flexbox
@@ -37,31 +37,39 @@
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    border-bottom: 1px solid darken(@color__body--background, 8%);
     margin-bottom: 30px;
-    @media only screen and (max-width : 1024px) {
-        padding: 20px 5% 10px;
+    padding: 0 5%;
+
+    background-color: @color__navigation--background;
+
+    @media @tablet {
+        padding: 0 0 0 5%;
         -webkit-flex-wrap: nowrap;
         -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
+        -webkit-align-content: stretch;
+        -ms-flex-line-pack: stretch;
+        align-content: stretch;
+        -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
     }
 }
+
 .template-homepage .flex-container {
     margin-bottom: 0;
 }
+
 // Global style for flex items
 .flex-item {
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     align-self: auto;
-    @media only screen and (max-width : 1024px) {
+
+    @media @tablet {
         margin-bottom: 0;
-        &.flex-nav {
-            -webkit-align-self: flex-start;
-            -ms-flex-item-align: start;
-            align-self: flex-start;
-        }
     }
+
     // Reorder items for desktop
     @media only screen and (min-width : 1024px) {
         &.flex-nav {
@@ -87,6 +95,52 @@
         }
     }
 }
+
+.flex-container .flex-item {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+// -----------------------------
+// Homepage Hero
+// -----------------------------
+
+.hero {
+    position: relative;
+}
+
+.brand {
+    position: absolute;
+    top: 110px;
+    z-index: 2;
+    width: 90%;
+    margin: 0 5%;
+    text-align: center;
+    @media only screen and (max-width: 1200px) {
+        top: 90px;
+    }
+    @media only screen and (max-width : 900px) {
+        top: 75px;
+    }
+    @media only screen and (max-width : 600px) {
+        top: 60px;
+    }
+}
+
 // logo and companyname
 
 .flex-logo {
@@ -96,15 +150,24 @@
 .flex-logo .logo-image {
     margin-right: 5px;
 }
+
+.logo-image {
+    max-height: 60px;
+}
+
 .flex-companyname .companyname {
-    @media only screen and (max-width : 1024px) {
+    @media @tablet {
         max-width: 100%;
-        margin-right: 50px;
-    }
-    @media only screen and (max-width : 600px) {
-        margin-right: 0;
     }
 }
+
+.default-page .companyname {
+    margin-right: 50px;
+    @media only screen and (max-width : 600px) {
+        margin-right: 20px;
+    }
+}
+
 .flex-logo,
 .flex-companyname {
     -webkit-box-flex: 0;
@@ -112,11 +175,19 @@
     -webkit-flex: 0 1 auto;
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
-    min-height: 44px;
+/*    min-height: 44px;
     @media only screen and (max-width : 600px) {
         min-height: inherit;
-    }
+    }*/
 }
+
+/*.default-page {
+    .flex-logo,
+    .flex-companyname,
+    .extendednavigation {
+        padding: 15px 0 10px;
+    }
+}*/
 
 // Navigation widget
 .flex-nav {
@@ -134,12 +205,33 @@
     font-weight: @font__companyname--font-weight;
     line-height: @font__companyname--line-height;
     letter-spacing: @font__companyname--letter-spacing;
-    @media only screen and (max-width : 600px) {
+    @media @tablet {
         font-size: bkscale(@font__companyname--font-size,0.8);
         line-height: bkscale(@font__companyname--line-height,0.8);
     }
+    @media only screen and (max-width : 600px) {
+        font-size: bkscale(@font__companyname--font-size,0.6);
+        line-height: bkscale(@font__companyname--line-height,0.6);
+    }
 }
 
+.default-page {
+    .company-link {
+        font-size: 36px;
+        line-height: 46px;
+    }
+    .logo-image,
+    .companyname {
+        margin: 10px 0;
+    }
+    .extendednavigation {
+        padding: 10px 0;
+        @media @tablet {
+            padding: 0;
+        }
+
+    }
+}
 
 // --------------
 // Brand
@@ -165,13 +257,13 @@
     margin-left: 4px;
     border: 5px solid transparent;
     border-top-color: @color__navigation--text;
-    @media only screen and (max-width : 1024px) {
+    @media @tablet {
         border-top-color: @color__navigation--text;
     }
 }
 .item-name--parent:hover:after {
     border-top-color: @color-swatch4;
-    @media only screen and (max-width : 1024px) {
+    @media @tablet {
         border-top-color: lighten(@color__navigation--text--hover, 30%);
     }
 }
@@ -195,7 +287,7 @@
     right: 0;
     white-space: normal;
     border: 1px solid darken(@color__body--background, 10%);
-    background-color: @color__header--background;
+    background-color: @color__navigation--background;
     .navigation-item--child {
         @media only screen and (min-width: 1024px) {
             border-bottom: 1px solid darken(@color__body--background, 5%);
@@ -209,11 +301,7 @@
 .extendednavigation .item-name {
     padding: 4px 12px;
 
-    @media only screen and (min-width: 600px) and (max-width: 1024px) {
-        font-size: 20px;
-        line-height: 35px;
-    }
-    @media only screen and (max-width : 1024px) {
+    @media @tablet {
         color: @color__navigation--text;
         &:hover {
             color: lighten(@color__navigation--text--hover, 30%);
@@ -232,7 +320,7 @@
 // -----------------------------
 
 .navigation-list {
-    @media only screen and (max-width : 1024px) {
+    @media @tablet {
         position: fixed;
         left: 0;
         top: 0;
@@ -244,7 +332,7 @@
         z-index: 3;
 
         padding: 150px 100px;
-        background-color: @color-swatch4;
+        background-color: @color__navigation--background;
 
         // Allows scrolling on mobile
         &.open {
@@ -282,7 +370,7 @@
 
 // Navigation item
 .navigation-item {
-    @media only screen and (max-width : 1024px) {
+    @media @tablet {
         opacity: 0;
         .transform(@x:0, @y:5px);
         .transition(@duration:1s, @ease:ease-in-out);
@@ -300,7 +388,7 @@
 
 .navigation-item,
 .navigation-item.folder {
-    @media only screen and (max-width : 1024px) {
+    @media @tablet {
         width: 90%;
         margin: 0 5%;
     }
@@ -320,7 +408,7 @@
 // Hide toggle on desktop
 .navigation-toggle {
     display: none;
-    @media only screen and (max-width : 1024px) {
+    @media @tablet {
         .animation;
         // Displays as icon's middle bar
         display: inline-block;
@@ -330,6 +418,12 @@
         overflow: hidden;
         background-color: transparent;
         z-index: 99999;
+        -webkit-border-top-left-radius: 0;
+        -webkit-border-top-right-radius: 0;
+        -moz-border-radius-topleft: 0;
+        -moz-border-radius-topright: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
 
         .transition(@duration:0.2s, @ease:ease-in-out);
 
@@ -340,13 +434,13 @@
             position: absolute;
             width: 26px;
             height: 3px;
-            top: 0;
+            top: 4px;
             left: inherit;
-            right: 0;
+            right: 7px;
             margin-top: 8px;
             margin-right: 0;
-            background: @color-swatch4;
-            box-shadow: 0 7px 0 @color-swatch4;
+            background: @color-swatch1;
+            box-shadow: 0 7px 0 @color-swatch1;
             .transition(@duration:0.2s, @ease:ease-in-out);
         }
         &:after {
@@ -354,12 +448,12 @@
             position: absolute;
             width: 26px;
             height: 3px;
-            top: 14px;
+            top: 18px;
             left: inherit;
-            right: 0;
+            right: 7px;
             margin-top: 8px;
             margin-right: 0;
-            background: @color-swatch4;
+            background: @color-swatch1;
             .transition(@duration:0.2s, @ease:ease-in-out);
         }
         &:hover {
@@ -383,8 +477,8 @@
 
             &:before {
                 width: 26px;
-                margin-top: 18px;
-                margin-left: -4px;
+                margin-top: 16px;
+                margin-left: -3px;
                 background: @color__body--background;
                 box-shadow: none;
                 -webkit-transform: rotate(45deg);
@@ -399,11 +493,11 @@
                 position: absolute;
                 width: 26px;
                 height: 3px;
-                top: 0;
+                top: 2px;
                 left: 50%;
                 right: 0;
                 margin-top: 18px;
-                margin-left: -4px;
+                margin-left: -12px;
                 background: @color__body--background;
                 box-shadow: none;
                 -webkit-transform: rotate(-45deg);
@@ -456,13 +550,13 @@
 
 .widget__extendednavigation {
     + .widget-overlay {
-        @media only screen and (max-width : 1024px) {
+        @media @tablet {
             display: none;
         }
     }
 
     &.open + .widget-overlay {
-        @media only screen and (max-width : 1024px) {
+        @media @tablet {
             position: fixed!important;
             left: 0;
             right: 0;
@@ -486,20 +580,61 @@
     }
 }
 
-// -----------------------------
-// Homepage Hero
-// -----------------------------
+// Navigation in homepage
+// ----------------------
 
-.hero {
-    position: relative;
+.template-homepage .extendednavigation {
+    background-color: @color__navigation--background;
+    padding: 10px 0;
+    @media @tablet {
+        padding: 0;
+        background-color: transparent;
+    }
+    .navigation-toggle {
+        position: absolute;
+        margin-left: -22px;
+    }
 }
 
-.brand {
-    position: absolute;
-    top: 110px;
-    z-index: 1;
-    width: 90%;
-    margin: 0 5%;
-    text-align: center;
+// Navigation in default page
+// --------------------------
+
+.default-page [data-widget-type="extendednavigation"] {
+    @media @tablet {
+        height: 100%;
+        background-color: @color__button--background;
+        background: -moz-linear-gradient(top, @color__button--background 0%, darken(@color__button--background,15%) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, @color__button--background), color-stop(100%, darken(@color__button--background,15%)));
+        background: -webkit-linear-gradient(top, @color__button--background 0%, darken(@color__button--background,15%) 100%);
+        background: -o-linear-gradient(top, @color__button--background 0%, darken(@color__button--background,15%) 100%);
+        background: -ms-linear-gradient(top, @color__button--background 0%, darken(@color__button--background,15%) 100%);
+        background: linear-gradient(to bottom, @color__button--background 0%, darken(@color__button--background,15%) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color__button--background', endColorstr='darken(@color__button--background,15%)', GradientType=0 );
+        &:hover {
+            background-color: @color__button--background--hover;
+            background: -moz-linear-gradient(top, darken(@color__button--background,15%), darken(@color__button--background,15%) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(100%, darken(@color__button--background,15%)), color-stop(100%, darken(@color__button--background,15%)));
+            background: -webkit-linear-gradient(top, darken(@color__button--background,15%), darken(@color__button--background,15%) 100%);
+            background: -o-linear-gradient(top, darken(@color__button--background,15%), darken(@color__button--background,15%) 100%);
+            background: -ms-linear-gradient(top, darken(@color__button--background,15%), darken(@color__button--background,15%) 100%);
+            background: linear-gradient(to bottom, darken(@color__button--background,15%), darken(@color__button--background,15%) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='darken(@color__button--background,15%)', endColorstr='darken(@color__button--background,15%)', GradientType=0 );
+            .transition(@duration:0.2s, @ease:ease-in-out);
+        }
+        .navigation-toggle {
+            background: transparent;
+            border: none;
+            height: 60px;
+            width: 60px;
+            &:before {
+                top: 32%;
+                right: 15px;
+            }
+            &:after {
+                top: 20%;
+                right: 15px;
+            }
+        }
+    }
 }
 
