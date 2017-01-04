@@ -696,3 +696,36 @@ hr {
     }
 }
 
+
+
+
+// -----------------------------
+// Page Title
+// -----------------------------
+
+.pagetitle {
+    padding: 6px 70px;
+    background-color: darken(@color__container--background, 4%);
+    border-bottom: 1px solid darken(@color__container--background, 10%);
+    text-align: center;
+
+    @media @tablet {
+        padding: 6px 40px;
+    }
+    @media @mobile {
+        padding: 6px 20px;
+    }
+}
+
+// Page Title Text
+.pagetitle-text {
+    padding-bottom: 0;
+    .heading--4;
+
+    @media @mobile {
+        font-size: bkscale(@font__h4--font-size, 0.7);
+        line-height: bkscale(@font__h4--line-height, 0.7);
+        text-align: center;
+    }
+}
+
