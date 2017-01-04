@@ -168,7 +168,9 @@
     margin-bottom: 25px;
     &:before {
         content: "\f053";
+        margin-right: 5px;
         font-family: 'FontAwesome', sans-serif;
+        font-size: 16px;
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -341,11 +343,19 @@
 
 .responsivecolumns {
     .blogpostlist {
+        .post-article {
+            -webkit-flex: 1 1 100%;
+            -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+        }
         .post-image,
         .post-content,
         .post-footer {
-            width: 80%;
+            width: 100%;
             margin: 0 auto;
+        }
+        .blogpostlist .post-image + .post-content {
+            top: 0;
         }
         .post-footer .timestamp {
             margin: 0 0 10px;
