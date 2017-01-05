@@ -7,6 +7,7 @@ input[type="search"],
 input[type="email"],
 input[type="password"],
 input[type="username"],
+.product-filters .form .input,
 textarea,
 .input--single-line {
     min-height: 44px;
@@ -22,10 +23,17 @@ input[type="username"] {
     width: 100%;
 }
 
-
 input[type="password"] {
     margin-bottom: 10px;
 }
+
+.product-filters .form .select {
+    min-height: 44px;
+    border-radius: 0;
+    background-color: darken(@color__body--background, 5%);
+    border: 1px solid darken(@color__body--background, 9%);
+}
+
 
 // Signup
 // Blog
@@ -146,7 +154,8 @@ input[type="password"] {
 .resetpassword, // Reset password
 .contactform, // Contact Form
 .signupform, // Signup
-.blogsearch {// Blog
+.blogsearch, // Blog
+.ecomproductslist .form { // Ecom
     padding: 20px 30px;
     .border-radius(3px);
     background-color: @color__form--background;

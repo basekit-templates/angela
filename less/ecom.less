@@ -334,7 +334,7 @@
 }
 
 .ecomproductslist {
-    padding: 50px 0 0;
+    /*padding: 50px 0 0;*/
     .listing-title {
         display: none;
     }
@@ -555,20 +555,31 @@
 
 .ecomproductslist .pagination-item {
     .button {
-        color: @color-swatch5;
         min-height: inherit;
-        padding: 0 10px;
+        padding: 5px;
+        min-height: 44px;
+        min-width: 44px;
         background-color: transparent;
+
+        .flex-display;
+        .justify-content(center);
+        .align-items(center);
+
         &:hover {
-            color: @color-swatch7;
             font-weight: 700;
             background-color: @color-swatch4;
         }
     }
     &.current .button {
-        color: @color-swatch7;
         font-weight: 700;
-        background-color: @color-swatch4;
+        background-color: @color__button--background--hover;
+        background: -moz-linear-gradient(top, darken(@color__button--background,20%), darken(@color__button--background,20%) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(100%, darken(@color__button--background,20%)), color-stop(100%, darken(@color__button--background,20%)));
+        background: -webkit-linear-gradient(top, darken(@color__button--background,20%), darken(@color__button--background,20%) 100%);
+        background: -o-linear-gradient(top, darken(@color__button--background,20%), darken(@color__button--background,20%) 100%);
+        background: -ms-linear-gradient(top, darken(@color__button--background,20%), darken(@color__button--background,20%) 100%);
+        background: linear-gradient(to bottom, darken(@color__button--background,20%), darken(@color__button--background,20%) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='darken(@color__button--background,20%)', endColorstr='darken(@color__button--background,20%)', GradientType=0 );
     }
 }
 
