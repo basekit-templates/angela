@@ -720,11 +720,21 @@ hr {
     -webkit-box-shadow: 0px 0 10px 0 rgba(0,0,0,0.15);
     -moz-box-shadow: 0px 0 10px 0 rgba(0,0,0,0.15);
     box-shadow: 0px 0 10px 0 rgba(0,0,0,0.15);
+
+    @media @mobile {
+        min-height: 44px;
+    }
 }
 
 // Page Title Text
 .pagetitle-text {
     padding-bottom: 0;
-    font-size: @font__p--font-size;
-    line-height: @font__p--line-height;
+
+    font-size: bkscale(@font__p--font-size,1.2);
+    line-height: bkscale(@font__p--line-height,1.2);
+
+    @media @mobile {
+        font-size: @font__p--font-size;
+        line-height: @font__p--line-height; 
+    }
 }
