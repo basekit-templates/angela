@@ -707,28 +707,20 @@ hr {
 // -----------------------------
 
 .pagetitle {
-    padding: 6px 70px;
-    background-color: darken(@color__container--background, 4%);
-    border-bottom: 1px solid darken(@color__container--background, 10%);
+    min-height: 66px;
+    padding: 8px 0 6px;
+    background-color: darken(@color-swatch1, 5%);
+    border-bottom: 1px solid darken(@color-swatch1, 9%);
     text-align: center;
-
-    @media @tablet {
-        padding: 6px 40px;
-    }
-    @media @mobile {
-        padding: 6px 20px;
-    }
+    
+    .flex-display;
+    .justify-content(center);
+    .align-items(center);
 }
 
 // Page Title Text
 .pagetitle-text {
     padding-bottom: 0;
-    .heading--4;
-
-    @media @mobile {
-        font-size: bkscale(@font__h4--font-size, 0.7);
-        line-height: bkscale(@font__h4--line-height, 0.7);
-        text-align: center;
-    }
+    font-size: @font__p--font-size;
+    line-height: @font__p--line-height;
 }
-
