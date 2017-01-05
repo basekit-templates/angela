@@ -63,6 +63,12 @@
     bottom: 0;
     min-height: 40px;
     margin: 0;
+    @media @mobile {
+        position: relative;
+        margin-top: 10px;
+        display: inline-block;
+        width: 100%;
+    }
 
     // Button
     .button {
@@ -134,7 +140,8 @@
     left: 70px;
     margin: auto;
     @media @mobile {
-        left: 40px;
+        left: 50%;
+        margin-left: -20px;
     }
     // Icon
     &:before {
@@ -215,6 +222,9 @@
     position: relative;
     max-width: 40%;
     margin: 0 auto;
+    @media @mobile {
+        margin-top: 10px;
+    }
 }
 
 .slide-pagination .pagination-list {
@@ -263,11 +273,17 @@
     .slide-navigation {
         position: relative;
         margin-top: 10px;
+        display: inline-block;
+        width: 100%;
+    }
+    .slide-pagination {
+        margin-top: 20px;
+        max-width: 100%;
+        width: 100%;
     }
     .responsiveslideshow__pause-toggle {
         left: 50%;
         margin-left: -20px;
-        margin-top: 5px;
     }
     .responsiveslideshow__previous-button:before,
     .responsiveslideshow__next-button:after {
