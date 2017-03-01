@@ -65,6 +65,7 @@
 
     // Reorder items for desktop
     @media only screen and (min-width : 1024px) {
+/*      Logo was removed from twig files 
         &.flex-nav {
             -webkit-box-ordinal-group: 4;
             -moz-box-ordinal-group: 4;
@@ -85,6 +86,21 @@
             -webkit-order: 2;
             -ms-flex-order: 2;
             order: 2;
+        }*/
+
+        &.flex-nav {
+            -webkit-box-ordinal-group: 3;
+            -moz-box-ordinal-group: 3;
+            -webkit-order: 2;
+            -ms-flex-order: 2;
+            order: 2;
+        }
+        &.flex-companyname {
+            -webkit-box-ordinal-group: 2;
+            -moz-box-ordinal-group: 2;
+            -webkit-order: 1;
+            -ms-flex-order: 1;
+            order: 1;
         }
     }
 }
@@ -118,24 +134,32 @@
 
 .brand {
     position: absolute;
-    top: 110px;
+    top: 148px;
     z-index: 2;
     width: 90%;
     margin: 0 5%;
     text-align: center;
     @media only screen and (max-width: 1200px) {
-        top: 90px;
+        top: 115px;
     }
     @media only screen and (max-width : 900px) {
-        top: 75px;
+        top: 70px;
+    }
+    @media @tablet {
+        top: 90px;
     }
     @media only screen and (max-width : 600px) {
-        top: 60px;
+        top: 100px;
+    }
+    @media @mobile {
+        top: 80px;
     }
 }
 
 // logo and companyname
 
+/*
+logo was removed from twig files
 .flex-logo {
     margin-right: 5px;
 }
@@ -150,7 +174,7 @@
 
 .logo-image {
     max-width: 100px;
-}
+}*/
 
 .flex-companyname .companyname {
     @media @tablet {
