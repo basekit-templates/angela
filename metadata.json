@@ -1,6 +1,7 @@
 {
     "name": "Angela",
     "screenshot": "angela-screenshot.jpg",
+    "thumbnail": "thumbnail.jpg",
     "widgetVersion":2,
     "pageTypes": ["home"],
     "templateType":"standard",
